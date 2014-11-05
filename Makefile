@@ -6,7 +6,7 @@
 #    By: tchezier <tchezier@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/04 11:15:14 by tchezier          #+#    #+#              #
-#    Updated: 2014/11/04 19:38:15 by tchezier         ###   ########.fr        #
+#    Updated: 2014/11/05 17:51:09 by tchezier         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -22,7 +22,8 @@ SRC = ./test/main.c	\
 				ft_strcpy.c		\
 				ft_memcpy.c		\
 				ft_memccpy.c	\
-				ft_strdup.c
+				ft_strdup.c		\
+				ft_strncpy.c
 
 OBJ = ./main.o \
 		ft_bzero.o		\
@@ -34,7 +35,8 @@ OBJ = ./main.o \
 		ft_strcpy.o		\
 		ft_memcpy.o		\
 		ft_memccpy.o	\
-		ft_strdup.o
+		ft_strdup.o		\
+		ft_strncpy.o
 
 HEADER = ./includes/
 

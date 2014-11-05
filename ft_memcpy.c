@@ -6,21 +6,21 @@
 /*   By: tchezier <tchezier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/04 17:01:16 by tchezier          #+#    #+#             */
-/*   Updated: 2014/11/04 19:07:48 by tchezier         ###   ########.fr       */
+/*   Updated: 2014/11/05 18:20:24 by tchezier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void *ft_memcpy(char *src, char *dest, int n)
+void *ft_memcpy(char *src, const char *dest, size_t n)
 {
-	int i;
-
+	size_t i;
+	
 	i = 0;
 	while (n > i)
 	{
-		dest[i] = src[i];
+		((char *)&dest[i]) = src[i];
 		i++;
 	}
-	return (dest);
+	return ((char *) dest);
 }

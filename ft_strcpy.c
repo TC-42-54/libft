@@ -6,7 +6,7 @@
 /*   By: tchezier <tchezier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/04 15:45:04 by tchezier          #+#    #+#             */
-/*   Updated: 2014/11/04 19:10:26 by tchezier         ###   ########.fr       */
+/*   Updated: 2014/11/05 12:17:24 by tchezier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,5 @@ void *ft_strcpy(char *src, char *dest)
 		x++;
 	}
 	dest[x] = '\0';
-	return (dest);
+	return ((char *)dest);
 }

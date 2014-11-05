@@ -6,7 +6,7 @@
 /*   By: tchezier <tchezier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/03 19:17:09 by tchezier          #+#    #+#             */
-/*   Updated: 2014/11/04 19:41:03 by tchezier         ###   ########.fr       */
+/*   Updated: 2014/11/05 17:50:01 by tchezier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,12 @@ int main(int argc, char **argv)
 	char str5[20];
 	char str6[20];
 	char str7[20];
-	char duptest;
+	char str8[20];
+	char *duptest = NULL;
 	char memtest[20];
 
 	ft_strcpy("bouh!", memtest);
-	argc =argc;
+	argc = argc;
 	ft_strcpy(argv[1], str1);
 	ft_strcpy(str1, str2);
 	ft_strcpy(str2, str4);
@@ -40,8 +41,15 @@ int main(int argc, char **argv)
     printf("%s \n", str2);
 	printf("Test de bzero \n");
 	printf("%s \n", str1);
-	ft_bzero(str1, 5);
-	printf("%s \n", str1);
+	ft_bzero(str1, 2);
+	ft_putchar(str1[0]);
+	ft_putchar(str1[1]);
+	ft_putchar(str1[2]);
+	ft_putchar(str1[3]);
+	ft_putchar(str1[4]);
+	ft_putchar(str1[5]);
+	ft_putchar(str1[6]);
+	ft_putchar('\n');
 	ft_putstr("test avec putstr");
 	ft_putstr(str1);
 	ft_putstr("test de strlen ;)");
@@ -60,7 +68,14 @@ int main(int argc, char **argv)
 	ft_memccpy(memtest, str6, 'j', 5);
 	ft_putstr(str6);
 	ft_putstr("test de strdup");
-	duptest = ft_strdup(*str7);
+	duptest = ft_strdup(str7);
 	ft_putstr(duptest);
+	ft_putstr("test de strncpy");
+	ft_strncpy(str7, str8, 9);
+	ft_putstr(str8);
+	ft_strncpy(str7, str8, 3);
+	ft_putstr(str8);
+	ft_strncpy(str7, str8, 35);
+	ft_putstr(str8);
     return(0);
 }
