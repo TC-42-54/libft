@@ -1,31 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tchezier <tchezier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/11/04 19:04:07 by tchezier          #+#    #+#             */
-/*   Updated: 2014/11/06 11:23:46 by tchezier         ###   ########.fr       */
+/*   Created: 2014/11/06 12:53:19 by tchezier          #+#    #+#             */
+/*   Updated: 2014/11/06 15:44:43 by tchezier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char *ft_strdup(char *src)
+void *ft_memchr(void *s, int c, size_t n)
 {
-	char *dest;
+	size_t i;
+	char *r;
+	char *cc;
 
-	dest = NULL;
-	if (src != NULL)
+	r = (char *)s;
+	cc = malloc((ft_strlen((const char *)c) + 1) * (sizeof (c)));
+	cc = (char *)c; 
+	i = 0;
+	if (r != NULL)
 	{
-		dest = malloc((ft_strlen(src) + 1) * (sizeof(*dest)));
-		if (dest != NULL)
+		while ((i < n) && (r[i] != c))
 		{
-			ft_strcpy(src, dest);
+			i++;
+			if (((unsigned char *)r + i) == c)
+				return (((unsigned char *)s + i));
 		}
-		return (dest);
 	}
-	else
-		return (NULL);
+	ft_putstr("on est sortis du while !");
+	return (NULL);
 }
