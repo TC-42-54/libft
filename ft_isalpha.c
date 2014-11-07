@@ -1,25 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tchezier <tchezier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/11/04 14:43:07 by tchezier          #+#    #+#             */
-/*   Updated: 2014/11/07 12:12:38 by tchezier         ###   ########.fr       */
+/*   Created: 2014/11/07 17:21:08 by tchezier          #+#    #+#             */
+/*   Updated: 2014/11/07 18:43:34 by tchezier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t ft_strlen(const char *str)
+int ft_isalpha(int c)
 {
-	size_t i;
-
-	i = 0;
-	while (str[i] != '\0')
-	{
-		i = i + 1;
-	}
-	return (i);
+	if ((90 >= c && c >= 65) || (122 >= c && c >= 97))
+		return (1);
+	else
+		return (0);
 }

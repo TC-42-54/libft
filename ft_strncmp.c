@@ -1,25 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tchezier <tchezier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/11/04 14:43:07 by tchezier          #+#    #+#             */
-/*   Updated: 2014/11/07 12:12:38 by tchezier         ###   ########.fr       */
+/*   Created: 2014/11/07 15:29:02 by tchezier          #+#    #+#             */
+/*   Updated: 2014/11/07 16:49:07 by tchezier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t ft_strlen(const char *str)
+int			ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	size_t i;
+	size_t  i;
 
 	i = 0;
-	while (str[i] != '\0')
-	{
-		i = i + 1;
-	}
-	return (i);
+	while (s1[i] == s2[i] && s1[i] && s2[i] && (i < n))
+		i++;
+	return ((int)s1[i] - (int)s2[i]);
 }

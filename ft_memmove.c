@@ -1,25 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tchezier <tchezier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/11/04 14:43:07 by tchezier          #+#    #+#             */
-/*   Updated: 2014/11/07 12:12:38 by tchezier         ###   ########.fr       */
+/*   Created: 2014/11/06 12:18:40 by tchezier          #+#    #+#             */
+/*   Updated: 2014/11/06 14:38:19 by tchezier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t ft_strlen(const char *str)
+void *ft_memmove(void *src, void *dest, size_t n)
 {
-	size_t i;
+	void *tmp;
 
-	i = 0;
-	while (str[i] != '\0')
+	if (src != NULL)
 	{
-		i = i + 1;
+		tmp = malloc((ft_strlen(src) + 1) * (sizeof(*tmp)));
+		ft_strncpy(src, tmp, n);
+		if (tmp != NULL)
+		{
+			ft_strncpy(tmp, dest, n);
+			if (dest != NULL)
+			{
+				return (dest);
+			}
+			else
+				return (NULL);
+		}
+		else
+			return (NULL);
 	}
-	return (i);
+	else
+		return (NULL);
 }
