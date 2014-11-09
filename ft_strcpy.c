@@ -6,13 +6,13 @@
 /*   By: tchezier <tchezier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/04 15:45:04 by tchezier          #+#    #+#             */
-/*   Updated: 2014/11/09 15:43:49 by tchezier         ###   ########.fr       */
+/*   Updated: 2014/11/09 18:07:49 by tchezier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void *ft_strcpy(const char *src, char *dest)
+void *ft_strcpy(char *dst, const char *src)
 {
 	int cp;
 	int x;
@@ -23,9 +23,9 @@ void *ft_strcpy(const char *src, char *dest)
 	x = 0;
 	while (cp > x)
 	{
-		dest[x] = src2[x];
+		dst[x] = src2[x];
 		x++;
 	}
-	dest[cp] = '\0';
-	return (dest);
+	dst[cp] = '\0';
+	return (dst);
 }

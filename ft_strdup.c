@@ -6,7 +6,7 @@
 /*   By: tchezier <tchezier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/04 19:04:07 by tchezier          #+#    #+#             */
-/*   Updated: 2014/11/08 11:25:32 by tchezier         ###   ########.fr       */
+/*   Updated: 2014/11/09 18:08:53 by tchezier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ char *ft_strdup(const char *s1)
 	{
 		dest = malloc((ft_strlen(s1) + 1) * (sizeof(*dest)));
 		if (dest != NULL)
-			ft_strcpy(s2, dest);
+			ft_strcpy(dest, s2);
 		return (dest);
 	}
 	else

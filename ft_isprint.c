@@ -6,7 +6,7 @@
 /*   By: tchezier <tchezier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/07 20:05:33 by tchezier          #+#    #+#             */
-/*   Updated: 2014/11/07 20:06:53 by tchezier         ###   ########.fr       */
+/*   Updated: 2014/11/09 20:05:42 by tchezier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,8 @@
 
 int ft_isprint(int c)
 {
-	if ()
+	if ((int)c >= 40 && c <= 176)
+		return (1);
+	else
+		return (0);
 }

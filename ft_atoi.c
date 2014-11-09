@@ -1,35 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tchezier <tchezier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/11/06 17:16:09 by tchezier          #+#    #+#             */
-/*   Updated: 2014/11/09 17:15:12 by tchezier         ###   ########.fr       */
+/*   Created: 2014/11/09 20:11:27 by tchezier          #+#    #+#             */
+/*   Updated: 2014/11/09 21:29:36 by tchezier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char		*ft_strcat(char *s1, char *s2)
+int ft_atoi(const char *str)
 {
-	size_t cn;
-	size_t i;
-	size_t x;
-	size_t y;
-
-	x = 0;
-	y = ft_strlen(s2);
-	i = ft_strlen(s1);
-	s1[i] = 0;
-	cn = y + i;
-	while (x < y && i < cn)
+	int i;
+	int res;
+	
+	i = 0;
+	res = 0;
+	if (str[0] == '\0')
+		return (0);
+	while (str[i] != '\0')
 	{
-		s1[i] = s2[x];
-		i++;
-		x++;
+		if (str[0] == '-')
+			res = (-1) * (ft_atoi(str + 1));
+		if ((str[i] >= '0') && (str[i] <= '9'))
+		{
+			res = (res * 10) + ((int)(str[i]) - 48);
+			i++;
+		}
 	}
-	s1[cn] = '\0';
-	return (s1);
+	return (res);
 }

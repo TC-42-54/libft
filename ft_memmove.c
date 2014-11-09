@@ -6,26 +6,26 @@
 /*   By: tchezier <tchezier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/06 12:18:40 by tchezier          #+#    #+#             */
-/*   Updated: 2014/11/06 14:38:19 by tchezier         ###   ########.fr       */
+/*   Updated: 2014/11/09 18:38:26 by tchezier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void *ft_memmove(void *src, void *dest, size_t n)
+void *ft_memmove(void* dst, void *src, size_t n)
 {
 	void *tmp;
 
 	if (src != NULL)
 	{
 		tmp = malloc((ft_strlen(src) + 1) * (sizeof(*tmp)));
-		ft_strncpy(src, tmp, n);
+		ft_strncpy(tmp, src, n);
 		if (tmp != NULL)
 		{
-			ft_strncpy(tmp, dest, n);
-			if (dest != NULL)
+			ft_strncpy(dst, tmp, n);
+			if (dst != NULL)
 			{
-				return (dest);
+				return (dst);
 			}
 			else
 				return (NULL);
