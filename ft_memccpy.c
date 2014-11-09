@@ -6,21 +6,28 @@
 /*   By: tchezier <tchezier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/04 17:01:16 by tchezier          #+#    #+#             */
-/*   Updated: 2014/11/04 19:08:07 by tchezier         ###   ########.fr       */
+/*   Updated: 2014/11/09 16:16:15 by tchezier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void *ft_memccpy(char *src, char *dest, int c, int n)
+void *ft_memccpy(void *dst, const void *src, int c, size_t  n)
 {
-	int i;
+	size_t i;
 
+	char *s1;
+	char *s2;
+
+	s1 = malloc((ft_strlen(dst) + 1) * (sizeof(*s1)));
+	s2 = malloc((ft_strlen(src) + 1) * (sizeof(*s2)));
+	s1 = (char *)(dst);
+	s2 = (char *)(src);
 	i = 0;
-	while (n > i && dest[i] != c)
+	while (n > i && s1[i] != c)
 	{
-		dest[i] = src[i];
+		s1[i] = s2[i];
 		i++;
 	}
-	return (dest);
+	return (s1);
 }

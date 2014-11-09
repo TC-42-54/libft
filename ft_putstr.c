@@ -6,7 +6,7 @@
 /*   By: tchezier <tchezier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/04 11:00:07 by tchezier          #+#    #+#             */
-/*   Updated: 2014/11/04 19:09:37 by tchezier         ###   ########.fr       */
+/*   Updated: 2014/11/09 16:58:15 by tchezier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void ft_putstr(char *str)
 	int i;
 
 	i = -1;
-	while (str[++i])
+	while (str[++i] != '\0')
 	{
 		ft_putchar(str[i]);
 	}
