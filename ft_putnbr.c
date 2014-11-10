@@ -6,7 +6,7 @@
 /*   By: tchezier <tchezier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/04 13:42:18 by tchezier          #+#    #+#             */
-/*   Updated: 2014/11/08 08:39:55 by tchezier         ###   ########.fr       */
+/*   Updated: 2014/11/10 14:26:12 by tchezier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void ft_putnbr(int nbr)
 	if (nbr < 0)
 	{
 		ft_putchar('-');
-		nbr = - nbr;
+		nbr = -nbr;
 	}
 	if (nbr >= 10)
 	{

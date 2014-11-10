@@ -6,7 +6,7 @@
 /*   By: tchezier <tchezier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/07 14:10:33 by tchezier          #+#    #+#             */
-/*   Updated: 2014/11/07 17:04:34 by tchezier         ###   ########.fr       */
+/*   Updated: 2014/11/10 14:28:14 by tchezier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,4 +20,4 @@ int ft_strcmp(const char *s1, const char *s2)
 	while (s1[i] == s2[i] && s1[i] && s2[i])
 		i++;
 	return ((int)s1[i] - (int)s2[i]);
-} 
+}

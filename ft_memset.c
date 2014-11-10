@@ -6,7 +6,7 @@
 /*   By: tchezier <tchezier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/03 18:58:23 by tchezier          #+#    #+#             */
-/*   Updated: 2014/11/08 10:15:26 by tchezier         ###   ########.fr       */
+/*   Updated: 2014/11/10 14:25:20 by tchezier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void *ft_memset(void *b, int c, size_t len)
 {
-	size_t i;
-	char *s;
+	size_t	i;
+	char	*s;
 
 	s = malloc(len + 1);
 	s = (char *)(b);
