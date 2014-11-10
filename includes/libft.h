@@ -6,7 +6,7 @@
 /*   By: tchezier <tchezier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/03 19:26:32 by tchezier          #+#    #+#             */
-/*   Updated: 2014/11/10 14:15:04 by tchezier         ###   ########.fr       */
+/*   Updated: 2014/11/10 15:16:41 by tchezier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,5 +45,4 @@ char *ft_strnstr(const char *s1, const char *s2, size_t n);
 void *ft_strncpy(char *dst, char *src, size_t n);
 void *ft_memmove(void *dst, void *src, size_t n);
 void *ft_memset(void *b, int c, size_t len);
-/* void *ft_memchr(void *s, int c, size_t n); */
 #endif

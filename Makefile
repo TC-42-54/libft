@@ -6,11 +6,11 @@
 #    By: tchezier <tchezier@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/04 11:15:14 by tchezier          #+#    #+#              #
-#    Updated: 2014/11/10 14:15:49 by tchezier         ###   ########.fr        #
+#    Updated: 2014/11/10 16:15:40 by tchezier         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
-NAME = libtest
+NAME = libft.a
 
 SRC = ./test/main.c	\
 				ft_bzero.c		\
@@ -71,8 +71,7 @@ MSRC = ./ft_bzero.c      \
 				ft_toupper.c	\
 				ft_tolower.c
 
-OBJ = ./main.o \
-		ft_bzero.o		\
+OBJ = ft_bzero.o		\
 		ft_memset.o		\
 		ft_putchar.o	\
 		ft_putstr.o		\
@@ -107,11 +106,13 @@ all: $(NAME)
 
 $(NAME):
 		gcc -Wall -Wextra -Werror -c $(SRC) -I $(HEADER)
-		gcc -o $(NAME) $(OBJ) -I $(HEADER)
+		ar -rs  ./lib/$(NAME) $(OBJ)
 
 debug:
 		gcc -o $(NAME) -g $(SRC) -I $(HEADER)
 
+exec:
+	gcc -I $(HEADER) -L lib main.c -o libtest -lft
 
 clean:
 		rm -f $(OBJ)

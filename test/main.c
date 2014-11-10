@@ -6,7 +6,7 @@
 /*   By: tchezier <tchezier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/03 19:17:09 by tchezier          #+#    #+#             */
-/*   Updated: 2014/11/10 14:14:19 by tchezier         ###   ########.fr       */
+/*   Updated: 2014/11/10 15:17:50 by tchezier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int main(int argc, char **argv)
 	char *strstr2;
 	char *strstr3;
 	char *strstr4;
-   /* char *nbr; */
+	/* char nbr */;
 	char *str;
 	char *dest;
 	char *duptest = NULL;
@@ -98,11 +98,11 @@ int main(int argc, char **argv)
 	ft_putstr("test de memmove");
 	ft_memmove(str10, str9, 9);
 	ft_putstr(str10);
-	/* ft_putstr("test de memchr");
-	nbr = ft_memchr(str10, 'o', 9);
-	ft_putstr(nbr);
-	nbr = ft_memchr(str10, 'q', 9);
-	ft_putstr(nbr); */
+	/*ft_putstr("test de memchr");
+	ft_putchar(ft_memchr(str10, 'o', 9));
+	ft_putchar('\n');
+	ft_putchar((char)ft_memchr(str10, 'q', 9));
+	ft_putchar('\n');*/
 	ft_putstr("test de strcat");
 	ft_putstr(dest2);
 	ft_strcat(dest2, str);
