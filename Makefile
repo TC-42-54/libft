@@ -129,6 +129,3 @@ git:
 		git add $(MSRC)
 		git commit -m "maj"
 		git push
-
-cp:
-		cp $(MSRC) ../librairie/$(CPSRC)
