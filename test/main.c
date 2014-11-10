@@ -6,7 +6,7 @@
 /*   By: tchezier <tchezier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/03 19:17:09 by tchezier          #+#    #+#             */
-/*   Updated: 2014/11/07 18:44:17 by tchezier         ###   ########.fr       */
+/*   Updated: 2014/11/10 14:14:19 by tchezier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,33 +27,34 @@ int main(int argc, char **argv)
 	char dest2[20];
 	char chr1[20];
 	char chr2[20];
-	char strstr1[20];
-	char strstr2[20];
+	char *strstr1;
+	char *strstr2;
+	char *strstr3;
+	char *strstr4;
    /* char *nbr; */
 	char *str;
 	char *dest;
 	char *duptest = NULL;
 	char memtest[20];
 
-	ft_strcpy("bouh!", memtest);
+	ft_strcpy(memtest, "bouh!");
 	argc = argc;
-	ft_strcpy(argv[1], str1);
-	ft_strcpy(str1, str2);
-	ft_strcpy(str2, str4);
-	ft_strcpy(str4, str5);
-	ft_strcpy(str5, str6);
-	ft_strcpy(str6, str7);
-	ft_strcpy(str7, str9);
+	ft_strcpy(str1, argv[1]);
+	ft_strcpy(str2, str1);
+	ft_strcpy(str4, str2);
+	ft_strcpy(str5, str4);
+	ft_strcpy(str6, str5);
+	ft_strcpy(str7, str6);
+	ft_strcpy(str9, str7);
 	str = malloc((ft_strlen(str9) + 1) * (sizeof(*str)));
 	dest = malloc((ft_strlen(str9) + 1) * (sizeof(*dest)));
-	ft_strcpy("thomaschez42", str);
-	ft_strcpy(str9, dest);
-	ft_strcpy("bonjour42", dest2);
+	ft_strcpy(str, "thomaschez42");
+	ft_strcpy(dest, str9);
+	ft_strcpy(dest2, "bonjour42");
 	printf("Test de memset ! \n");
     ft_putstr(str2);
 	ft_putstr(str4);
-	ft_putchar('\n');
-    ft_memset(str2, 'o', 15);
+    ft_memset(str2, 'o', 5);
     printf("%s \n", str2);
 	printf("Test de bzero \n");
 	printf("%s \n", str1);
@@ -65,9 +66,10 @@ int main(int argc, char **argv)
 	ft_putchar(str1[4]);
 	ft_putchar(str1[5]);
 	ft_putchar(str1[6]);
+	ft_putchar(str1[7]);
+	ft_putchar(str1[8]);
 	ft_putchar('\n');
-	ft_putstr("test avec putstr");
-	ft_putstr(str1);
+	ft_putstr(str1 + 3);
 	ft_putstr("test de strlen ;)");
 	cp = ft_strlen(str4);
 	ft_putnbr(cp);
@@ -77,24 +79,24 @@ int main(int argc, char **argv)
 	ft_putchar('\n');
 	ft_putstr("test memcpy");
 	ft_putstr(str5);
-	ft_memcpy(memtest, str5, 5);
+	ft_memcpy(str5, memtest, 5);
 	ft_putstr(str5);
 	ft_putstr("test de memccpy");
 	ft_putstr(str6);
-	ft_memccpy(memtest, str6, 'j', 5);
+	ft_memccpy(str6, memtest, 'j', 5);
 	ft_putstr(str6);
 	ft_putstr("test de strdup");
 	duptest = ft_strdup(str7);
 	ft_putstr(duptest);
 	ft_putstr("test de strncpy");
-	ft_strncpy(str7, str8, 9);
+	ft_strncpy(str8, str7, 9);
 	ft_putstr(str8);
-	ft_strncpy(str7, str8, 3);
+	ft_strncpy(str8, str7, 3);
 	ft_putstr(str8);
-	ft_strncpy(str7, str8, 35);
+	ft_strncpy(str8, str7, 35);
 	ft_putstr(str8);
 	ft_putstr("test de memmove");
-	ft_memmove(str9, str10, 9);
+	ft_memmove(str10, str9, 9);
 	ft_putstr(str10);
 	/* ft_putstr("test de memchr");
 	nbr = ft_memchr(str10, 'o', 9);
@@ -102,27 +104,31 @@ int main(int argc, char **argv)
 	nbr = ft_memchr(str10, 'q', 9);
 	ft_putstr(nbr); */
 	ft_putstr("test de strcat");
-	ft_strcat(str, dest);
-	ft_putstr(dest);
-	ft_putnbr(strlen(dest));
+	ft_putstr(dest2);
+	ft_strcat(dest2, str);
+	ft_putstr(dest2);
+	ft_putnbr(strlen(dest2));
 	ft_putchar('\n');
 	ft_putstr("test de strncat");
-	ft_strncat(str, dest2, 6);
-	ft_putstr(dest2);
-	ft_putnbr(ft_strlen(dest2));
+	str = ft_strdup("salut");
+	ft_strncat(dest, str, 3);
+	ft_putstr(dest);
+	ft_putnbr(ft_strlen(str7));
 	ft_putchar('\n');
 	ft_putstr("test de strchr");
-	ft_strcpy(ft_strchr(dest2, '4'), chr1);
+	ft_strcpy(chr1, ft_strchr(dest2, '4'));
 	ft_putstr(chr1);
 	ft_putstr("test de strrchr");
-	ft_strcpy(ft_strrchr("bonjour42thomas42voiture", '4'), chr2);
+	ft_strcpy(chr2, ft_strrchr("bonjour42thomas42voiture", '4'));
 	ft_putstr(chr2);
 	ft_putstr("test de strstr");
-	ft_strcpy("my house is small", strstr1);
-	ft_strcpy("my car is huge", strstr2);
-	ft_putstr(ft_strstr(strstr1, "house"));
-	/*ft_putstr(ft_strstr(strstr1, "car"));
-	  ft_putstr(ft_strstr(strstr2, "house"));*/
+	strstr1 = ft_strdup("my house is small");
+	strstr2 = ft_strdup("my car is huge");
+	strstr3 = ft_strdup("house");
+	strstr4 = ft_strdup("car");
+	ft_putstr(ft_strstr(strstr1, strstr3));
+	ft_putstr(ft_strstr(strstr2, strstr4));
+	ft_putstr(ft_strstr(strstr2, strstr3));
 	ft_putstr("test de strcmp");
 	ft_putnbr(ft_strcmp(strstr1, strstr2));
 	ft_putchar('\n');
@@ -136,5 +142,43 @@ int main(int argc, char **argv)
 	ft_putchar('\n');
 	ft_putnbr(ft_isalpha(';'));
 	ft_putchar('\n');
-    return(0);
+	ft_putstr("test de isdigit");
+	ft_putnbr(ft_isdigit('3'));
+	ft_putchar('\n');
+	ft_putnbr(ft_isdigit('e'));
+	ft_putchar('\n');
+	ft_putstr("test de isalnum");
+	ft_putnbr(ft_isalnum('a'));
+	ft_putchar('\n');
+	ft_putnbr(ft_isalnum('6'));
+	ft_putchar('\n');
+	ft_putnbr(ft_isalnum('.'));
+	ft_putchar('\n');
+    ft_putstr("test de isascii");
+	ft_putnbr(ft_isascii(';'));
+	ft_putchar('\n');
+	ft_putstr("test de isprint");
+	ft_putnbr(ft_isprint(39));
+	ft_putchar('\n');
+	ft_putnbr(ft_isprint(56));
+	ft_putchar('\n');
+	ft_putnbr(ft_atoi("2645\0"));
+	ft_putchar('\n');
+	ft_putnbr(ft_atoi("-123"));
+	ft_putchar('\n');
+	ft_putnbr(ft_atoi("bvjjfl"));
+	ft_putchar('\n');
+	ft_putnbr(atoi(".,;,"));
+	ft_putchar('\n');
+	ft_putnbr(ft_atoi("/.,';"));
+	ft_putchar('\n');
+	ft_putstr(ft_strnstr("bonjour42", "jour", 7));
+	ft_putchar(ft_toupper('a'));
+	ft_putchar('\n');
+	ft_putchar(toupper('a'));
+	ft_putchar('\n');
+	ft_putchar(ft_tolower('A'));
+	ft_putchar('\n');
+	ft_putchar(tolower('A'));
+	return(0);
 }

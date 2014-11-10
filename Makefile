@@ -6,7 +6,7 @@
 #    By: tchezier <tchezier@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/04 11:15:14 by tchezier          #+#    #+#              #
-#    Updated: 2014/11/09 11:59:54 by tchezier         ###   ########.fr        #
+#    Updated: 2014/11/10 14:15:49 by tchezier         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -34,30 +34,42 @@ SRC = ./test/main.c	\
 				ft_strncmp.c	\
 				ft_isalpha.c	\
 				ft_isdigit.c	\
-				ft_isalnum.c
+				ft_isalnum.c	\
+				ft_isascii.c	\
+				ft_isprint.c	\
+				ft_atoi.c		\
+				ft_strnstr.c	\
+				ft_toupper.c	\
+				ft_tolower.c
 
 MSRC = ./ft_bzero.c      \
-                ft_memset.c     \
-                ft_putchar.c    \
-                ft_putstr.c     \
-                ft_strlen.c     \
-                ft_putnbr.c     \
-                ft_strcpy.c     \
-                ft_memcpy.c     \
-                ft_memccpy.c    \
-                ft_strdup.c     \
-                ft_strncpy.c    \
-                ft_memmove.c    \
-                ft_strcat.c     \
-                ft_strncat.c    \
-                ft_strchr.c		\
+				ft_memset.c     \
+				ft_putchar.c    \
+				ft_putstr.c     \
+				ft_strlen.c     \
+				ft_putnbr.c    	\
+				ft_strcpy.c     \
+				ft_memcpy.c     \
+				ft_memccpy.c    \
+				ft_strdup.c     \
+				ft_strncpy.c    \
+				ft_memmove.c    \
+				ft_strcat.c     \
+				ft_strncat.c    \
+				ft_strchr.c		\
 				ft_strrchr.c	\
 				ft_strstr.c		\
 				ft_strcmp.c		\
 				ft_strncmp.c	\
 				ft_isalpha.c	\
 				ft_isdigit.c	\
-				ft_isalnum.c
+				ft_isalnum.c	\
+				ft_isascii.c	\
+				ft_isprint.c	\
+				ft_atoi.c		\
+				ft_strnstr.c	\
+				ft_toupper.c	\
+				ft_tolower.c
 
 OBJ = ./main.o \
 		ft_bzero.o		\
@@ -81,7 +93,13 @@ OBJ = ./main.o \
 		ft_strncmp.o	\
 		ft_isalpha.o	\
 		ft_isdigit.o	\
-		ft_isalnum.o
+		ft_isalnum.o	\
+		ft_isascii.o	\
+		ft_isprint.o	\
+		ft_atoi.o		\
+		ft_strnstr.o	\
+		ft_toupper.o	\
+		ft_tolower.o
 
 HEADER = ./includes/
 
@@ -108,7 +126,7 @@ re:
 
 git:
 		git add $(MSRC)
-		git commit -m "maj fichiers"
+		git commit -m "maj"
 		git push
 
 cp:
