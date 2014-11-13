@@ -5,38 +5,46 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tchezier <tchezier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/11/09 20:11:27 by tchezier          #+#    #+#             */
-/*   Updated: 2014/11/10 14:18:01 by tchezier         ###   ########.fr       */
+/*   Created: 2014/11/13 20:41:32 by tchezier          #+#    #+#             */
+/*   Updated: 2014/11/13 20:42:02 by tchezier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+int ft_isspace(int c)
+{
+	if ((c == '\t') || (c == '\n') ||
+		(c == '\v') || (c == '\f') ||
+		(c == '\r') || (c == ' '))
+		return (1);
+	return (0);
+}
+
 int ft_atoi(const char *str)
 {
-	int i;
 	int res;
+	int x;
 
-	i = 0;
 	res = 0;
-	if (str[0] == '\0')
+	x = 1;
+	if (!*str)
 		return (0);
-	while (str[i] != '\0')
+	while (ft_isspace(*str) == 1)
+		str++;
+	if ((*str == '-') || (*str == '+'))
 	{
-		if (ft_isalpha(str[i]) == 1)
-			i++;
-		if (str[0] == '-')
-		{
-			res = (-1) * (ft_atoi(str + 1));
-			return (res);
-		}
-		if ((str[i] >= '0') && (str[i] <= '9'))
-		{
-			res = (res * 10) + ((int)(str[i]) - 48);
-			i++;
-		}
-		else
-			i++;
+		if (*str == '-')
+			x = -1;
+		str++;
 	}
-	return (res);
+	while ((*str != '\0'))
+	{
+		if (ft_isdigit(*str) == 1)
+			res = (res * 10) + ((int)(*str) - 48);
+		else
+			return (res * x);
+		str++;
+	}
+	return (res * x);
 }

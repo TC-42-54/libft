@@ -6,7 +6,7 @@
 /*   By: tchezier <tchezier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/03 19:17:09 by tchezier          #+#    #+#             */
-/*   Updated: 2014/11/10 15:17:50 by tchezier         ###   ########.fr       */
+/*   Updated: 2014/11/13 20:17:49 by tchezier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,13 @@ int main(int argc, char **argv)
 	char *strstr2;
 	char *strstr3;
 	char *strstr4;
-	/* char nbr */;
+	/* char nbr */
 	char *str;
 	char *dest;
 	char *duptest = NULL;
 	char memtest[20];
 
-	ft_strcpy(memtest, "bouh!");
+	ft_strcpy(memtest, "Ceci est un test.");
 	argc = argc;
 	ft_strcpy(str1, argv[1]);
 	ft_strcpy(str2, str1);
@@ -83,7 +83,11 @@ int main(int argc, char **argv)
 	ft_putstr(str5);
 	ft_putstr("test de memccpy");
 	ft_putstr(str6);
-	ft_memccpy(str6, memtest, 'j', 5);
+	ft_bzero(str6, ft_strlen(str6));
+	memccpy(str6, memtest, 'i', 10);
+	ft_putstr(str6);
+	ft_bzero(str6, ft_strlen(str6));
+	ft_memccpy(str6, memtest, 'i', 10);
 	ft_putstr(str6);
 	ft_putstr("test de strdup");
 	duptest = ft_strdup(str7);
@@ -135,7 +139,7 @@ int main(int argc, char **argv)
 	ft_putstr("test de strncmp");
 	ft_putnbr(ft_strncmp(strstr1, strstr2, 10));
 	ft_putchar('\n');
-	ft_putnbr(ft_strncmp(strstr1, strstr2, 2));
+	ft_putnbr(ft_strncmp(strstr1, strstr2, 1));
 	ft_putchar('\n');
 	ft_putstr("test de isalpha");
 	ft_putnbr(ft_isalpha('a'));
@@ -162,15 +166,18 @@ int main(int argc, char **argv)
 	ft_putchar('\n');
 	ft_putnbr(ft_isprint(56));
 	ft_putchar('\n');
-	ft_putnbr(ft_atoi("2645\0"));
+	ft_putstr("test de atoi");
+	ft_putnbr(ft_atoi("2645"));
 	ft_putchar('\n');
 	ft_putnbr(ft_atoi("-123"));
 	ft_putchar('\n');
-	ft_putnbr(ft_atoi("bvjjfl"));
+	ft_putnbr(ft_atoi("569"));
 	ft_putchar('\n');
-	ft_putnbr(atoi(".,;,"));
+	ft_putnbr(atoi("a56"));
 	ft_putchar('\n');
-	ft_putnbr(ft_atoi("/.,';"));
+	ft_putnbr(atoi("+2;5;6"));
+	ft_putchar('\n');
+	ft_putnbr(ft_atoi("20000000000"));
 	ft_putchar('\n');
 	ft_putstr(ft_strnstr("bonjour42", "jour", 7));
 	ft_putchar(ft_toupper('a'));

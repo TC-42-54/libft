@@ -6,7 +6,7 @@
 /*   By: tchezier <tchezier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/03 18:58:23 by tchezier          #+#    #+#             */
-/*   Updated: 2014/11/10 14:25:20 by tchezier         ###   ########.fr       */
+/*   Updated: 2014/11/12 16:36:57 by tchezier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,5 @@ void *ft_memset(void *b, int c, size_t len)
 		s[i] = c;
 		i++;
 	}
-	s[i] = '\0';
-	return ((void *)b);
+	return ((void *)s);
 }
