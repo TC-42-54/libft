@@ -16,6 +16,7 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <string.h>
+# include <strings.h>
 # include <ctype.h>
 int ft_strcmp(const char *s1, const char *s2);
 int ft_strncmp(const char *s1, const char *s2, size_t n);
@@ -31,6 +32,7 @@ void ft_bzero(void *str, size_t n);
 void ft_putchar(char c);
 void ft_putstr(char *str);
 size_t ft_strlen(const char *str);
+size_t ft_strlcat(char *dst, const char *src, size_t size);
 void ft_putnbr(int nbr);
 void *ft_strcpy(char *dst, const char *src);
 void *ft_memcpy(void *dst, const void *src, size_t n);
