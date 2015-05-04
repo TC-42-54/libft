@@ -5,34 +5,36 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tchezier <tchezier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/11/10 14:45:34 by tchezier          #+#    #+#             */
-/*   Updated: 2014/11/13 20:40:40 by tchezier         ###   ########.fr       */
+/*   Created: 2014/11/18 15:37:22 by tchezier          #+#    #+#             */
+/*   Updated: 2014/11/18 16:54:35 by tchezier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t ft_strlcat(char *dst, const char *src, size_t size)
+size_t ft_strlcat(char *dst, char const *src, size_t size)
 {
-  char *d = (char *)dst;
-  char *s = (char *)src;
-  size_t n = size;
-  size_t dlen;
+	size_t		size2;
+	size_t		ln;
+	size_t		ln2;
 
-  while (n-- > 0 && *d != '\0')
-    d++;
-  dlen = ft_strlen(d) - ft_strlen(dst);
-  n = size - dlen;
-
-  if (n == 0)
-    return (dlen + ft_strlen(s));
-  while (*s != '\0')
-  {
-    if (n-- > 1)
-      *d++ = *s;
-  
-    s++;
-  }
-  *d = '\0';
-  return (dlen + (ft_strlen(s) - ft_strlen(src)));
+	size2 = size;
+	ln = ft_strlen(dst);
+	ln2 = ft_strlen(src);
+	while (*dst && size)
+	{
+		dst++;
+		size--;
+	}
+	if (size == 0)
+		return (size2 + ln2);
+	while (*src && size > 1)
+	{
+		*dst = *src;
+		dst++;
+		src++;
+		size--;
+	}
+	*dst = '\0';
+	return (ln + ln2);
 }

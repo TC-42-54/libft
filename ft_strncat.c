@@ -6,7 +6,7 @@
 /*   By: tchezier <tchezier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/06 17:49:09 by tchezier          #+#    #+#             */
-/*   Updated: 2014/11/09 18:17:29 by tchezier         ###   ########.fr       */
+/*   Updated: 2014/11/14 20:37:59 by tchezier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ char *ft_strncat(char *s1, char *s2, size_t n)
 
 	src2 = malloc((n + 1) * (sizeof(*src2)));
 	ft_strncpy(src2, s2, n);
-	ft_putstr(src2);
 	x = 0;
 	y = ft_strlen(src2);
 	i = ft_strlen(s1);

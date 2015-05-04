@@ -6,7 +6,7 @@
 /*   By: tchezier <tchezier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/06 12:18:40 by tchezier          #+#    #+#             */
-/*   Updated: 2014/11/10 14:24:49 by tchezier         ###   ########.fr       */
+/*   Updated: 2015/01/21 13:07:04 by tchezier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,15 @@
 
 void *ft_memmove(void *dst, void *src, size_t n)
 {
-	void *tmp;
+	char *tmp;
 
 	if (src != NULL)
 	{
-		tmp = malloc((ft_strlen(src) + 1) * (sizeof(*tmp)));
-		ft_strncpy(tmp, src, n);
+		tmp = (char *)malloc(sizeof(*tmp) * n);
+		ft_memcpy(tmp, src, n);
 		if (tmp != NULL)
 		{
-			ft_strncpy(dst, tmp, n);
+			dst = ft_memcpy(dst, tmp, n);
 			if (dst != NULL)
 			{
 				return (dst);

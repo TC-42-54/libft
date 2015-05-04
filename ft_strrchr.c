@@ -6,7 +6,7 @@
 /*   By: tchezier <tchezier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/07 09:46:03 by tchezier          #+#    #+#             */
-/*   Updated: 2014/11/07 13:54:05 by tchezier         ###   ########.fr       */
+/*   Updated: 2014/11/18 13:57:30 by tchezier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,11 @@
 char		*ft_strrchr(char *str, int c)
 {
 	size_t	x;
-	size_t	i;
-	size_t	cn;
-	char	rc;
 
-	i = 0;
 	x = ft_strlen(str);
-	cn = x;
-	rc = (char)c;
-	while (cn > i)
-	{
-		if (str[cn] == rc)
-			return (str + cn);
-		cn--;
-	}
+	while ((x > 0) && (str[x] != c))
+		x--;
+	if (str[x] == c)
+		return (str + x);
 	return (NULL);
 }

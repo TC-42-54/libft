@@ -1,26 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tchezier <tchezier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/11/07 14:10:33 by tchezier          #+#    #+#             */
-/*   Updated: 2015/03/30 18:11:45 by tchezier         ###   ########.fr       */
+/*   Created: 2014/11/17 11:10:10 by tchezier          #+#    #+#             */
+/*   Updated: 2014/11/24 15:20:10 by tchezier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int ft_strcmp(const char *s1, const char *s2)
+void ft_putnbr_fd(int n, int fd)
 {
-	size_t s1len;
-	size_t s2len;
-
-	s1len = ft_strlen(s1);
-	s2len = ft_strlen(s2);
-	if (s1len <= s2len)
-		return (ft_memcmp(s1, s2, s1len + 1));
+	if (n == -2147483648)
+		ft_putstr_fd("-2147483648", fd);
 	else
-		return (ft_memcmp(s1, s2, s2len + 1));
+	{
+		if (n < 0)
+		{
+			ft_putchar_fd('-', fd);
+			n = -n;
+		}
+		if (n >= 10)
+		{
+			ft_putnbr_fd((n / 10), fd);
+			ft_putnbr_fd((n % 10), fd);
+		}
+		else
+			ft_putchar_fd((n + 48), fd);
+	}
 }

@@ -1,26 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tchezier <tchezier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/11/07 14:10:33 by tchezier          #+#    #+#             */
-/*   Updated: 2015/03/30 18:11:45 by tchezier         ###   ########.fr       */
+/*   Created: 2015/03/30 20:26:15 by tchezier          #+#    #+#             */
+/*   Updated: 2015/03/30 20:26:47 by tchezier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int ft_strcmp(const char *s1, const char *s2)
+char *ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	size_t s1len;
-	size_t s2len;
+	char	*res;
+	size_t	i;
 
-	s1len = ft_strlen(s1);
-	s2len = ft_strlen(s2);
-	if (s1len <= s2len)
-		return (ft_memcmp(s1, s2, s1len + 1));
-	else
-		return (ft_memcmp(s1, s2, s2len + 1));
+	if (s)
+	{
+		i = 0;
+		res = (char *)malloc(sizeof(res) * (ft_strlen(s) + 1));
+		if (res == NULL)
+			return (NULL);
+		while (s[i] != '\0')
+		{
+			res[i] = (*f)(i, s[i]);
+			i++;
+		}
+		res[i] = '\0';
+		return (res);
+	}
+	return (NULL);
 }

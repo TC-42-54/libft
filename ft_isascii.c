@@ -6,7 +6,7 @@
 /*   By: tchezier <tchezier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/07 20:01:00 by tchezier          #+#    #+#             */
-/*   Updated: 2014/11/10 14:18:32 by tchezier         ###   ########.fr       */
+/*   Updated: 2014/11/17 13:14:04 by tchezier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int ft_isascii(int c)
 {
-	if ((int)c >= 0 && c <= 177)
+	if ((int)c >= 0 && c <= 127)
 		return (1);
 	else
 		return (0);

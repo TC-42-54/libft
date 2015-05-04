@@ -6,34 +6,30 @@
 /*   By: tchezier <tchezier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/05 13:43:49 by tchezier          #+#    #+#             */
-/*   Updated: 2014/11/09 18:28:21 by tchezier         ###   ########.fr       */
+/*   Updated: 2015/03/26 19:11:13 by tchezier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void *ft_strncpy(char *dst, char *src, size_t n)
+char	*ft_strncpy(char *dst, const char *src, size_t n)
 {
-	size_t cp;
-	size_t x;
+	size_t	cp;
+	size_t	x;
+	char	*tmp;
 
-	cp = -1;
-	x = ft_strlen(src);
-	ft_bzero(dst, ft_strlen(dst));
-	if (n > x)
+	cp = ft_strlen(src);
+	tmp = (char *)(src);
+	x = 0;
+	while ((x < n) && (x < cp))
 	{
-		while (++cp < x)
-			dst[cp] = src[cp];
-		while ((++cp < n) && (++cp >= x))
-			dst[cp] = 0;
-		return (dst);
+		dst[x] = tmp[x];
+		x++;
 	}
-	else if (n <= x)
+	while (x < n)
 	{
-		while (++cp < n)
-			dst[cp] = src[cp];
-		return (dst);
+		dst[x] = '\0';
+		x++;
 	}
-	else
-		return (NULL);
+	return (dst);
 }

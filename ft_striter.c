@@ -1,26 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_striter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tchezier <tchezier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/11/07 14:10:33 by tchezier          #+#    #+#             */
-/*   Updated: 2015/03/30 18:11:45 by tchezier         ###   ########.fr       */
+/*   Created: 2015/03/30 19:21:15 by tchezier          #+#    #+#             */
+/*   Updated: 2015/03/30 19:21:49 by tchezier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int ft_strcmp(const char *s1, const char *s2)
+void ft_striter(char *s, void (*f)(char *))
 {
-	size_t s1len;
-	size_t s2len;
+	size_t i;
 
-	s1len = ft_strlen(s1);
-	s2len = ft_strlen(s2);
-	if (s1len <= s2len)
-		return (ft_memcmp(s1, s2, s1len + 1));
-	else
-		return (ft_memcmp(s1, s2, s2len + 1));
+	i = 0;
+	if (s && f != NULL)
+	{
+		while (s[i] != '\0')
+		{
+			(*f)(&s[i]);
+			i++;
+		}
+	}
 }

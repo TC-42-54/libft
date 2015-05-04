@@ -6,7 +6,7 @@
 /*   By: tchezier <tchezier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/07 11:21:17 by tchezier          #+#    #+#             */
-/*   Updated: 2014/11/10 14:33:28 by tchezier         ###   ########.fr       */
+/*   Updated: 2015/03/30 17:47:18 by tchezier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,28 @@
 
 char		*ft_strstr(const char *s1, const char *s2)
 {
-	size_t	len2;
+	size_t	s2len;
 	size_t	i;
-	size_t	j;
+	int		ret;
+	char	*sch;
 
-	i = 0;
-	j = 0;
-	len2 = ft_strlen(s2);
-	if (s2[0] == '\0')
-		return ((char *)(s1));
-	while (s1[i] != '\0')
+	if (s1 && s2)
 	{
-		if (s1[i] == s2[j])
+		sch = (char *)s1;
+		i = 0;
+		s2len = ft_strlen(s2);
+		if (!s2len)
+			return (sch);
+		while (*sch != '\0')
 		{
-			j++;
-			if (j == len2)
-				return ((char *)(s1 + (i - (j - 1))));
+			i = (*sch == s2[i]) ? i + 1 : 0;
+			if (i == s2len)
+				return (sch - (i - 1));
+			ret = ft_memcmp(sch, s2, s2len);
+			if (ret == 0)
+				return (sch);
+			sch++;
 		}
-		else if (s1[i] != s2[j])
-		{
-			j = 0;
-		}
-		i++;
 	}
 	return (NULL);
 }

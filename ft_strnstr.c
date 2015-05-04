@@ -6,7 +6,7 @@
 /*   By: tchezier <tchezier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/10 14:16:50 by tchezier          #+#    #+#             */
-/*   Updated: 2014/11/10 14:31:16 by tchezier         ###   ########.fr       */
+/*   Updated: 2015/03/30 18:03:12 by tchezier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,29 @@
 
 char		*ft_strnstr(const char *s1, const char *s2, size_t n)
 {
+	size_t	s2len;
 	size_t	i;
-	size_t	j;
+	char	*sch;
 
-	i = 0;
-	j = 0;
-	if (s2[0] == '\0')
-		return ((char *)(s1));
-	while ((s1[i] != '\0') && (i < n))
+	if (s1 && s2)
 	{
-		if (s1[i] == s2[j])
-		{
-			j++;
-			if (j == ft_strlen(s2))
-				return ((char *)(s1 + (i - (j - 1))));
-		}
-		else if (s1[i] != s2[j])
-		{
-			j = 0;
-		}
-		else if (s2[j] == '\0')
+		sch = (char *)s1;
+		s2len = ft_strlen(s2);
+		i = 0;
+		if (!s2len)
+			return (sch);
+		if ((int)(n - (s2len - 1)) < 0)
 			return (NULL);
-		i++;
+		while ((*sch != '\0') && n)
+		{
+			i = (*sch == s2[i]) ? i + 1 : 0;
+			if (i == s2len)
+				return (sch - (i - 1));
+			if ((ft_memcmp(sch, s2, n) == 0) && (((int)(n - (s2len - 1))) >= 0))
+				return (sch);
+			sch++;
+			n--;
+		}
 	}
 	return (NULL);
 }

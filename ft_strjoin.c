@@ -1,26 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tchezier <tchezier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/11/07 14:10:33 by tchezier          #+#    #+#             */
-/*   Updated: 2015/03/30 18:11:45 by tchezier         ###   ########.fr       */
+/*   Created: 2014/12/09 14:16:03 by tchezier          #+#    #+#             */
+/*   Updated: 2015/01/21 13:08:00 by tchezier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int ft_strcmp(const char *s1, const char *s2)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	size_t s1len;
-	size_t s2len;
+	char	*conc;
+	int		len1;
+	int		len2;
+	int		len3;
 
-	s1len = ft_strlen(s1);
-	s2len = ft_strlen(s2);
-	if (s1len <= s2len)
-		return (ft_memcmp(s1, s2, s1len + 1));
+	len1 = ft_strlen(s1);
+	len2 = ft_strlen(s2);
+	len3 = (len1 + len2);
+	if (s1 == NULL || s2 == NULL)
+		return (NULL);
+	conc = malloc((len3 + 1) * (sizeof(char)));
+	if (conc != NULL)
+	{
+		ft_strcpy(conc, s1);
+		ft_strcat(conc, (char *)s2);
+		conc[len3 + 1] = '\0';
+	}
 	else
-		return (ft_memcmp(s1, s2, s2len + 1));
+		return (NULL);
+	return (conc);
 }

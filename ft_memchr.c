@@ -5,26 +5,31 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tchezier <tchezier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/11/06 12:53:19 by tchezier          #+#    #+#             */
-/*   Updated: 2014/11/14 11:24:06 by tchezier         ###   ########.fr       */
+/*   Created: 2014/11/18 09:45:32 by tchezier          #+#    #+#             */
+/*   Updated: 2014/11/18 16:56:03 by tchezier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void		*ft_memchr(void *s, int c, size_t n)
+void *ft_memchr(const void *s, int c, size_t n)
 {
-	char	*r;
+	const unsigned char *s2;
+	unsigned char		c2;
 
-	r = (char *)s;
-	if (r != NULL)
+	s2 = (unsigned char *)(s);
+	c2 = (unsigned char)(c);
+	if (s2 == NULL)
+		return (NULL);
+	if ((s2) && (n > 0))
 	{
-		while (n--)
+		while ((n > 0) && (*s2 != c2))
 		{
-			if (*r == c)
-				return (((unsigned char *)r));
-			r++;
+			n--;
+			s2++;
 		}
+		if ((n > 0) && *s2 == c2)
+			return ((void *)s2);
 	}
 	return (NULL);
 }
